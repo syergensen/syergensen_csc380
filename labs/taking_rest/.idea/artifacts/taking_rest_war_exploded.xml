@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="taking_rest:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/taking_rest_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="taking_rest/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="taking_rest" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

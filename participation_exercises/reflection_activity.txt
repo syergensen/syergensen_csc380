@@ -1,0 +1,11 @@
+Reflection Activity
+
+Using the javadocs for java.lang.Class to learn the reflection API and the java tutorials on reflection, write code to do the following:
+
+1) Get an instance of a Class object using the String name for ReflectionActivity.java.
+2) Print out all of the constructors available for a class, including their respective parameter types.
+3) Create an instance of a ReflectionActivity from its Class object by calling the ReflectionActivity(String, double) constructor.
+4) Print out all of the fields (type and name) in a class (including private fields)
+5) Using reflection, call the addToNumber(double) method on your ReflectionActivity instance.
+
+You can complete all of this code in one main method. Submit that code to the LMS.
