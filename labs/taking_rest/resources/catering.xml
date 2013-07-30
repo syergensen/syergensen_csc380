@@ -1,0 +1,18 @@
+<catering>
+	<restaurant id="1" name="Arby's">
+		<menu type="lunch">
+			<item id="1" name="Sandwich" price="2.00"/>
+			<item id="2" name="Fries" price="1.00"/>
+		</menu>
+		<menu type="dinner">
+			<item id="3" name="Roast Beef" price="4.00"/>
+			<item id="4" name="Fries" price="1.00"/>
+		</menu>
+	</restaurant>
+	<restaurant id="2" name="McDonald's">
+		<menu type="lunch">
+			<item id="1" name="Happy Meal" price="3.00"/>
+			<item id="2" name="Fries" price="1.00"/>
+		</menu>
+	</restaurant>
+</catering>

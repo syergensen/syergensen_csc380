@@ -37,15 +37,15 @@ public class Test {
 			book2.setAuthor(author2);
 			book2.setTitle("Huck Finn");
 
-			library.getBooks().add(book1);
-			library.getBooks().add(book2);
+			library.getBook().add(book1);
+			library.getBook().add(book2);
 
 			File xml = new File("library.xml");
 			marshaller.marshal(library, xml);
 
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			library = (Library) unmarshaller.unmarshal(xml);
-			System.out.println(library.getBooks().get(0).getTitle());
+			System.out.println(library.getBook().get(0).getTitle());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

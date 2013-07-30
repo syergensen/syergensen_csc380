@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1">
+	<xs:element name="catering" type="catering"/>
+	<xs:complexType name="catering">
+		<xs:sequence>
+			<xs:element type="restaurant" name="restaurant" maxOccurs="unbounded" minOccurs="1">
+			<xs:annotation>
+				<xs:appinfo>
+					<jaxb:property name="restaurants"/>
+				</xs:appinfo>
+			</xs:annotation>
+		</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="restaurant">
+		<xs:sequence>
+			<xs:element type="menu" name="menu" maxOccurs="unbounded" minOccurs="1">
+			<xs:annotation>
+				<xs:appinfo>
+					<jaxb:property name="menus"/>
+				</xs:appinfo>
+			</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute type="xs:int" name="id" use="required"/>
+		<xs:attribute type="xs:string" name="name" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="item">
+		<xs:attribute type="xs:int" name="id" use="required"/>
+		<xs:attribute type="xs:string" name="name" use="required"/>
+		<xs:attribute type="xs:decimal" name="price" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="menu">
+		<xs:sequence>
+			<xs:element type="item" name="item" maxOccurs="unbounded" minOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="items"/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute type="menuType" name="type" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="menuType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BREAKFAST"/>
+			<xs:enumeration value="LUNCH"/>
+			<xs:enumeration value="DINNER"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

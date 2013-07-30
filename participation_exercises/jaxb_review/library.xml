@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<library>
-	<book title="Ender's Game">
-		<author name="Orson Scott Card" phone="12345"/>
-	</book>
-	<book title="Huck Finn">
-		<author name="Mark Twain" phone="6789"/>
-	</book>
-</library>
