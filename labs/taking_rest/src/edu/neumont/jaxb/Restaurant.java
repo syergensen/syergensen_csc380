@@ -7,23 +7,24 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for restaurant complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="restaurant">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="menu" type="{}menu" maxOccurs="unbounded"/>
+ *         &lt;element ref="{}menu" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -32,16 +33,17 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "restaurant", propOrder = {
+@XmlType(name = "", propOrder = {
     "menus"
 })
+@XmlRootElement(name = "restaurant")
 public class Restaurant {
 
     @XmlElement(name = "menu", required = true)
     protected List<Menu> menus;
     @XmlAttribute(name = "id", required = true)
     protected int id;
-    @XmlAttribute(name = "name", required = true)
+    @XmlAttribute(name = "name")
     protected String name;
 
     /**

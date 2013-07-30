@@ -2,6 +2,7 @@
 package edu.neumont.jaxb;
 
 import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -13,9 +14,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;simpleType name="menuType">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="BREAKFAST"/>
- *     &lt;enumeration value="LUNCH"/>
- *     &lt;enumeration value="DINNER"/>
+ *     &lt;enumeration value="breakfast"/>
+ *     &lt;enumeration value="lunch"/>
+ *     &lt;enumeration value="dinner"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -25,16 +26,29 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum MenuType {
 
-    BREAKFAST,
-    LUNCH,
-    DINNER;
+    @XmlEnumValue("breakfast")
+    BREAKFAST("breakfast"),
+    @XmlEnumValue("lunch")
+    LUNCH("lunch"),
+    @XmlEnumValue("dinner")
+    DINNER("dinner");
+    private final String value;
+
+    MenuType(String v) {
+        value = v;
+    }
 
     public String value() {
-        return name();
+        return value;
     }
 
     public static MenuType fromValue(String v) {
-        return valueOf(v);
+        for (MenuType c: MenuType.values()) {
+            if (c.value.equals(v)) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException(v);
     }
 
 }

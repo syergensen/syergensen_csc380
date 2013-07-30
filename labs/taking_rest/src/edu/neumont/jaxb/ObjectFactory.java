@@ -1,10 +1,7 @@
 
 package edu.neumont.jaxb;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -23,6 +20,8 @@ import javax.xml.namespace.QName;
  */
 @XmlRegistry
 public class ObjectFactory {
+
+
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: edu.neumont.jaxb
      * 
@@ -36,6 +35,14 @@ public class ObjectFactory {
      */
     public Catering createCatering() {
         return new Catering();
+    }
+
+    /**
+     * Create an instance of {@link Restaurant }
+     * 
+     */
+    public Restaurant createRestaurant() {
+        return new Restaurant();
     }
 
     /**
@@ -54,11 +61,4 @@ public class ObjectFactory {
         return new Item();
     }
 
-    /**
-     * Create an instance of {@link Restaurant }
-     * 
-     */
-    public Restaurant createRestaurant() {
-        return new Restaurant();
-    }
 }
