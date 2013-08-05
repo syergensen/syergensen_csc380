@@ -1,6 +1,6 @@
 package servlet;
 
-import generated.services.server.ZipCodeServiceImpl;
+//import generated.services.server.ZipCodeServiceImpl;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.frontend.ServerFactoryBean;
@@ -23,7 +23,7 @@ public class ZipCodeServlet extends CXFNonSpringServlet {
         // You could add the endpoint publish codes here
         Bus bus = getBus();
         BusFactory.setDefaultBus(bus);
-        Endpoint.publish("/ZipCodeService", new ZipCodeServiceImpl());
+//        Endpoint.publish("/ZipCodeService", new ZipCodeServiceImpl());
 
         // You can als use the simple frontend API to do this
 //        ServerFactoryBean factory = new ServerFactoryBean();
