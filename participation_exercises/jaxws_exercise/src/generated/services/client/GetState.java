@@ -1,5 +1,5 @@
 
-package generated.services.server;
+package generated.services.client;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,13 +6,13 @@
 <xs:element name="getStateResponse" type="tns:getStateResponse"/>
 <xs:complexType name="getState">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:int"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="zipCode" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="messages" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="getStateResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:state"/>
+      <xs:element minOccurs="0" name="state" type="tns:state"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="state">

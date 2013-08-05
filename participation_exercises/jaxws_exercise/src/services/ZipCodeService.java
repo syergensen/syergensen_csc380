@@ -10,5 +10,5 @@ import java.util.List;
 public interface ZipCodeService {
 
     @WebMethod
-    public @WebResult State getState(@WebParam(name = "zipCode") Integer zipCode, @WebParam List<String> messages);
+    public @WebResult(name = "state") State getState(@WebParam(name = "zipCode") Integer zipCode, @WebParam(name = "messages") List<String> messages);
 }

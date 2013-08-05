@@ -1,14 +1,15 @@
 package servlet;
 
-//import generated.services.server.ZipCodeServiceImpl;
+import generated.services.server.ZipCodeService;
+import generated.services.server.ZipCodeServiceImpl;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
-import org.apache.cxf.frontend.ServerFactoryBean;
+import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.cxf.transport.servlet.CXFNonSpringServlet;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.xml.ws.Endpoint;
+import javax.xml.namespace.QName;
 
 /**
  * User: Sean Yergensen
@@ -16,20 +17,22 @@ import javax.xml.ws.Endpoint;
 @WebServlet(urlPatterns = "/services/*")
 public class ZipCodeServlet extends CXFNonSpringServlet {
 
-    @Override
-    protected void loadBus(ServletConfig sc) {
-        super.loadBus(sc);
+    public void loadBus(ServletConfig servletConfig) {
+        super.loadBus(servletConfig);
 
-        // You could add the endpoint publish codes here
         Bus bus = getBus();
         BusFactory.setDefaultBus(bus);
-//        Endpoint.publish("/ZipCodeService", new ZipCodeServiceImpl());
 
-        // You can als use the simple frontend API to do this
-//        ServerFactoryBean factory = new ServerFactoryBean();
-//        factory.setBus(bus);
-//        factory.setServiceClass(ZipCodeService.class);
-//        factory.setAddress("/ZipCodeService");
-//        factory.create();
+        createFactoryBean();
+    }
+
+    private void createFactoryBean() {
+        JaxWsServerFactoryBean fb = new JaxWsServerFactoryBean();
+        fb.setWsdlLocation("file:/C:/neumont/syergensen_csc380/participation_exercises/jaxws_exercise/src/generated/services/server/ZipCodeService.wsdl");
+        fb.setAddress("/ZipCodeService");
+        fb.setServiceBean(new ZipCodeServiceImpl());
+        fb.setServiceClass(ZipCodeService.class);
+        fb.setServiceName(new QName("http://localhost/ZipCodeService", "ZipCodeServicePort"));
+        fb.create();
     }
 }
